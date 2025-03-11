@@ -2,9 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 导入组件
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 import Solutions from '../views/Solutions.vue'
 import SolutionDetail from '../views/SolutionDetail.vue'
-import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
 import Products from '../views/Products.vue'
 import ProductDetail from '../views/ProductDetail.vue'
@@ -17,6 +17,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
     path: '/solutions',
     name: 'Solutions',
     component: Solutions
@@ -26,11 +31,6 @@ const routes = [
     name: 'SolutionDetail',
     component: SolutionDetail,
     props: true
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About
   },
   {
     path: '/404',
