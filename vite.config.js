@@ -6,12 +6,11 @@ export default defineConfig({
   base: '/nexttoken-website/',
   build: {
     outDir: 'dist',
-    assetsDir: '',
+    emptyOutDir: true,
+    sourcemap: false,
     rollupOptions: {
       output: {
-        entryFileNames: `[name].[hash].js`,
-        chunkFileNames: `[name].[hash].js`,
-        assetFileNames: `[name].[hash].[ext]`
+        manualChunks: undefined
       }
     }
   }
