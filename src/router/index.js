@@ -8,6 +8,7 @@ import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
 import Products from '../views/Products.vue'
 import ProductDetail from '../views/ProductDetail.vue'
+console.log(createWebHashHistory())
 
 const routes = [
   {
