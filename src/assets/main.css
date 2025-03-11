@@ -1,0 +1,104 @@
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 基础样式 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* 容器样式 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+/* 段落样式 */
+p {
+  margin-bottom: 1rem;
+}
+
+/* 链接样式 */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+} 
