@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,20 +19,19 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: |
-          npm install
-          ls -la
+        run: npm ci
           
       - name: Build
-        run: |
-          npm run build
-          ls -la dist/
+        run: npm run build
           
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          enable_jekyll: false
-          force_orphan: false
-          commit_message: "deploy: update gh-pages" 
+      - name: Copy files to gh-pages
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git checkout --orphan gh-pages
+          git rm -rf .
+          cp -r dist/* .
+          rm -rf dist
+          git add .
+          git commit -m "deploy: update gh-pages"
+          git push -f origin gh-pages 
