@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/nexttoken-website/',
+  base: './',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
@@ -12,6 +12,7 @@ export default defineConfig({
       output: {
         manualChunks: undefined
       }
-    }
+    },
+    assetsDir: 'assets'
   }
 }) 

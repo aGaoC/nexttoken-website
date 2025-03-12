@@ -24,14 +24,18 @@ jobs:
       - name: Build
         run: npm run build
           
-      - name: Copy files to gh-pages
+      - name: List build output
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -r dist/* .
-          rm -rf dist
-          git add .
-          git commit -m "deploy: update gh-pages"
-          git push -f origin gh-pages 
+          echo "Build directory contents:"
+          ls -la dist/
+          echo "Assets directory contents:"
+          ls -la dist/assets || true
+          
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          enable_jekyll: false
+          force_orphan: true
+          commit_message: "deploy: update gh-pages with all assets" 
